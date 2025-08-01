@@ -4,3 +4,6 @@ docker run --name my_postgres \
   -e POSTGRES_DB=mydb \
   -p 5432:5432 \
   -d postgres
+
+sudo apt update
+sudo apt install postgresql-client
