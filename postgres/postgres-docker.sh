@@ -11,3 +11,5 @@ sudo apt install postgresql-client
 
 # Set Password
 psql -h localhost -p 5432 -U postgres -d mydb
+# OR
+docker exec -it my_postgres psql -U postgres -d mydb
