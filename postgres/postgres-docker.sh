@@ -1,7 +1,7 @@
 # in postgres, username is postgres not root
 docker run --name my_postgres \
   -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=admin \
+  -e POSTGRES_PASSWORD=<your-password> \
   -e POSTGRES_DB=mydb \
   -p 5432:5432 \
   -d postgres
