@@ -1,3 +1,7 @@
+// First Install PG Library
+npm install pg
+
+// Then in code, write this
 const { Pool } = require('pg');
 
 // Setup PostgreSQL connection
