@@ -4,4 +4,5 @@ sonar-scanner \
   -Dsonar.projectKey=react-devsecops \
   -Dsonar.sources=src \
   -Dsonar.host.url=http://<your-sonarqube-server> \
-  -Dsonar.login=$SONAR_TOKEN
+  -Dsonar.login=$SONAR_TOKEN 
+  # if stored in github actions or jenkins cred
