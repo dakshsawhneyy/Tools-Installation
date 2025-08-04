@@ -1,3 +1,4 @@
+sudo apt install npm
 npm install -g sonar-scanner
 sonar-scanner \
   -Dsonar.projectKey=react-devsecops \
