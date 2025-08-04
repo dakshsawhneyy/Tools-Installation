@@ -2,6 +2,7 @@ global:
   scrape_interval: 5    # scrape metrics every 5 seconds
 
 scrape_configs:
+  # This tells prometheus to scrap itself
   - job_name: 'prometheus'  # used for fetch our main endpoint
     static_configs:
       - targets: ['localhost:9000']
