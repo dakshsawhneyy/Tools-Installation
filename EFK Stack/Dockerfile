@@ -6,6 +6,7 @@ USER root
 # Install required build dependencies
 RUN apt-get update && \
     apt-get install -y build-essential ruby-dev && \
+    gem install elasticsearch -v 7.13.0 --no-document && \
     gem install fluent-plugin-elasticsearch -v 5.1.5 --no-document && \
     apt-get remove -y build-essential ruby-dev && \
     apt-get autoremove -y && \
