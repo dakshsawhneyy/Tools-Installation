@@ -16,6 +16,8 @@ filebeat.inputs:
       - "*"
     processors:
       - add_docker_metadata: ~
+    json.message_key: message
+    json.keys_under_root: true
 
 output.logstash:
   hosts: ["<elasticsearch-instance-ip>:5044"]
