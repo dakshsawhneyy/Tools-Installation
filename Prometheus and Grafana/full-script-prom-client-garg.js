@@ -22,3 +22,4 @@ scrape_configs:
     static_configs:
       - targets: ["<NDOEJS_SERVER_ADDRESS>"]  // If on AWS, instance id:port and on local, ifconfig pick up inet private ip and paste
 
+// Custom Metrics
