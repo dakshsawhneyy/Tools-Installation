@@ -9,7 +9,7 @@ services:
     ports:
       - "9090:9090"
     networks:
-      - log_processing_network
+      - prom
   grafana:
     image: grafana/grafana
     container_name: grafana
@@ -18,10 +18,18 @@ services:
     volumes:
       - grafana-storage:/var/lib/grafana
     networks:
-      - log_processing_network
+      - prom
+  loki:
+    image: grafana/loki
+    container_name: loki
+    ports:
+      - "3100:3100"
+    networks:
+      - prom
 
 volumes:
   grafana-storage:
 
 networks:
-  log_processing_network:
+  prom:
+    driver: bridge
