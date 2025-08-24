@@ -66,3 +66,6 @@ const options = {
 };
 const logger = createLogger(options);   // we can add logs inside this logger
 
+// Open Loki Server on browser to test
+http://<your-ip>:3100/metrics
+
