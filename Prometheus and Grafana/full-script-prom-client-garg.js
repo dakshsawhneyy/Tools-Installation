@@ -11,3 +11,14 @@ app.get('/metrics', async (req,res) => {
   const metrics = await client.register.metrics();
   res.send(metrics);
 })
+
+
+// Create prom-config.yml
+global:
+  scrape_interval: 4s
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: ["<NDOEJS_SERVER_ADDRESS>"]  // If on AWS, instance id:port and on local, ifconfig pick up inet private ip and paste
+
