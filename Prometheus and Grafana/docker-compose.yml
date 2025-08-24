@@ -1,18 +1,11 @@
 version: '3.8'
 
 services:
-  log-processing-app:
-    build: ../.
-    container_name: log-processing-app
-    ports:
-      - "9000:9000"
-    networks:
-      - log_processing_network
   prometheus:
     image: prom/prometheus
     container_name: prometheus
     volumes:
-      - ../prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prom-config.yml:/etc/prometheus/prometheus.yml
     ports:
       - "9090:9090"
     networks:
