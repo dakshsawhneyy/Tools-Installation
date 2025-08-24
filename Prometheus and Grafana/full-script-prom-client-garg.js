@@ -41,3 +41,28 @@ const reqResTime = new client.Histogram({
 app.use(responseTime((req, res, time) => {
     reqResTime.labels({ method: req.method, route: req.url, code: req.statusCode }).observe(time)
 }))
+
+// Creating metric for counter
+const totalReqCounter = new client.Counter({
+    name: 'total_req',
+    help: 'Total number of requests',
+})
+// Just increment counter in every request -> totalReqCounter.inc()
+
+// ! Fetching Logs into LOKI 
+npm i winston winston-loki
+
+// Inside index.js -- copy this from documentation of winston-loki
+const { createLogger, transports } = require("winston");
+const LokiTransport = require("winston-loki");
+
+// Sending data to LOKI
+const options = {
+  transports: [
+    new LokiTransport({
+      host: "http://3.111.23.106:3100"
+    })
+  ]
+};
+const logger = createLogger(options);   // we can add logs inside this logger
+
