@@ -1,4 +1,12 @@
+helm repo add litmuschaos https://litmuschaos.github.io/litmus-helm/
+helm repo update
+
 # This will create a litmus namespace and install all the necessary components for running chaos experiments.
-kubectl apply -f https://litmuschaos.github.io/litmus/litmus-operator-v2.16.0.yaml
+kubectl create ns litmus
+
+# Install Litmus ChaosCenter using Helm.
+helm install chaos litmuschaos/litmus --namespace=litmus --set portal.frontend.service.type=NodePort
 
 kubectl get pods -n litmus
+
+kubectl port-forward svc/chaos-litmus-frontend-service 9091:9091 -n litmus
