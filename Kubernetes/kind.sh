@@ -9,4 +9,6 @@ nodes:
     image: kindest/node:v1.33.1
 
 
-kind create cluster --config kind-config.yaml --name tws-kind-cluster
+kind create cluster --config kind-config.yaml --name daksh-cluster
+
+kind delete cluster --name daksh-cluster
