@@ -1,0 +1,8 @@
+postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: daksh
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: aws_1_to_1_million_users
+    volumes:
+      - db-data:/var/lib/postgresql/data
