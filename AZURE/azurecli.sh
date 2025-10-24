@@ -23,4 +23,6 @@ Signed-by: /etc/apt/keyrings/microsoft.gpg" | sudo tee /etc/apt/sources.list.d/a
 
 # Update repository information and install the azure-cli package:
 sudo apt-get update
+
+# Install azure-cli
 sudo apt-get install azure-cli
