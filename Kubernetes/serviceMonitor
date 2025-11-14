@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: salary-model-servicemonitor
+  labels:
+    release: monitor        # MUST match your Helm release name
+    app: salary-model      
+spec:
+  selector:
+    matchLabels:
+      app: salary-model     # MUST match labels in your Service
+  namespaceSelector:
+    matchNames:
+      - default             # your service is in default namespace
+  endpoints:
+    - port: http            # MUST match service.port.name
+      path: /metrics
+      interval: 10s
+      scrapeTimeout: 5s
