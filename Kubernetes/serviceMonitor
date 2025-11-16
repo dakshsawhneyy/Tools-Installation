@@ -1,10 +1,13 @@
+# Install kube-prometheus-stack 
+helm install monitor prometheus-community/kube-prometheus-stack
+
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: salary-model-servicemonitor
-  namespace: monitoring
+  # namespace: monitoring
   labels:
-    release: kind-prometheus      # MUST match your Helm release name
+    release: monitor      # MUST match your Helm release name
     app: salary-model      
 spec:
   selector:
