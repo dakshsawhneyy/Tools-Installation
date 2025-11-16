@@ -2,8 +2,9 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: salary-model-servicemonitor
+  namespace: monitoring
   labels:
-    release: monitor        # MUST match your Helm release name
+    release: kind-prometheus      # MUST match your Helm release name
     app: salary-model      
 spec:
   selector:
