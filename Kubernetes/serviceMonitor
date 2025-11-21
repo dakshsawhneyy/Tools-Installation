@@ -16,7 +16,7 @@ metadata:
     app: salary-model      
 spec:
   selector:
-    matchLabels:
+    matchLabels:          # match service with metadata.labels.app = house-price-serving
       app: salary-model     # MUST match labels in your Service
   namespaceSelector:
     matchNames:
