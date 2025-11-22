@@ -9,3 +9,24 @@ kubectl wait --for=condition=ready pod --all -n argocd --timeout=5m
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
 kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+
+# Make ARGOCD watch over your application
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: house-price
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/dakshsawhneyy/house-price-mlops'
+    targetRevision: HEAD
+    path: k8s_manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
