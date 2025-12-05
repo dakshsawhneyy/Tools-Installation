@@ -27,6 +27,11 @@ sudo apt-get update
 # Install azure-cli
 sudo apt-get install azure-cli
 
+# Update Config
+az aks get-credentials \
+  --resource-group <your_resource_group_name> \
+  --name <your_aks_cluster_name>
+
 # Store Subscription ID and Tenant ID
 export ARM_SUBSCRIPTION_ID=$(az account show --query id -o tsv)
 export ARM_TENANT_ID=$(az account show --query tenantId -o tsv)
