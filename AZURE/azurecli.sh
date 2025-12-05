@@ -26,3 +26,7 @@ sudo apt-get update
 
 # Install azure-cli
 sudo apt-get install azure-cli
+
+# Store Subscription ID and Tenant ID
+export ARM_SUBSCRIPTION_ID=$(az account show --query id -o tsv)
+export ARM_TENANT_ID=$(az account show --query tenantId -o tsv)
