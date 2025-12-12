@@ -33,5 +33,5 @@ export ARM_TENANT_ID=$(az account show --query tenantId -o tsv)
 
 # Update Config
 az aks get-credentials \
-  --resource-group <your_resource_group_name> \
-  --name <your_aks_cluster_name>
+  --resource-group aiopsplatform \
+  --name aiopsplatform-AKS-cluster
