@@ -1,4 +1,4 @@
-# http_route.yml
+# http_route_traffic_splitting.yml
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
