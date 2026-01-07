@@ -1,6 +1,6 @@
 # Install kube-prometheus-stack 
 helm install monitor prometheus-community/kube-prometheus-stack
-helm install monitor prometheus-community/kube-prometheus-stack -n kube-prom --create-namespace
+helm install monitor prometheus-community/kube-prometheus-stack -n monitoring --create-namespace
 
 kubectl port-forward svc/monitor-kube-prometheus-st-prometheus 9090:9090
 kubectl port-forward svc/monitor-grafana 30000:80
