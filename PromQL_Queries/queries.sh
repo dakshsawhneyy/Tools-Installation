@@ -16,3 +16,6 @@ histogram_quantile(
   sum(rate(http_request_duration_seconds_bucket[5m])) by (le)
 )
 
+
+# Requests per second (RPS)
+sum(rate(http_requests_total[5m]))
