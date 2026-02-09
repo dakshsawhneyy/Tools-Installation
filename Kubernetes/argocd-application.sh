@@ -15,14 +15,14 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: house-price
+  name: sample-app
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/dakshsawhneyy/house-price-mlops'
+    repoURL: 'https://github.com/dakshsawhneyy/sample-python-app.git'
     targetRevision: HEAD
-    path: k8s_manifests
+    path: K8S
   destination:
     server: https://kubernetes.default.svc
     namespace: default
