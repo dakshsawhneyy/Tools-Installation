@@ -5,6 +5,7 @@ helm repo update
 # Install Kyverno into its own namespace
 helm install kyverno kyverno/kyverno -n kyverno --create-namespace
 
+
 # Create a new file named require-labels-policy.yaml. This policy will block any new Deployment that doesn't have a team-owner label.
 apiVersion: kyverno.io/v1
 kind: ClusterPolicy
