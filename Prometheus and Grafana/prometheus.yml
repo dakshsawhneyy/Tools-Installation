@@ -12,3 +12,11 @@ scrape_configs:
     static_configs:
       - targets: ['log-processing-app:9000']  # This tells Prometheus where to look for metrics.
 # host.docker.internal is a special hostname that lets a Docker container access the host machine
+
+  - job_name: 'service-a'
+    static_configs:
+      - targets: ['service-a:3000']
+
+  - job_name: 'service-b'
+    static_configs:
+      - targets: ['service-b:3001']
