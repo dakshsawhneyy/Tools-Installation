@@ -38,17 +38,20 @@ input {
 } 
 filter { 
   grok { 
-    match => { "message" => "%{TIMESTAMP_ISO8601:log_timestamp} %{LOGLEVEL:log_level} 
-    %{GREEDYDATA:log_message}" } 
+    match => { "message" => "%{TIMESTAMP_ISO8601:log_timestamp} %{LOGLEVEL:log_level} %{GREEDYDATA:log_message}" } 
   } 
 } 
 output { 
   elasticsearch { 
     hosts => ["https://localhost:9200"] 
+    user => "elastic"
+    password => "YOUR_PASSWORD"  # sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
+    ssl => true
+    ssl_certificate_verification => false
     index => "logs-%{+YYYY.MM.dd}" 
   } 
   stdout { codec => rubydebug } 
-}
+} 
 
 # Start & Enable Logstash 
 sudo systemctl start logstash 
