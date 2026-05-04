@@ -1,10 +1,14 @@
 #  Install & Configure Filebeat (Client Machine) 
 
 # Install Filebeat 
-wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add - 
-echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee /etc/apt/sources.list.d/elastic-7.x.list 
-sudo apt update 
-sudo apt install filebeat -y
+curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | \
+sudo gpg --dearmor -o /usr/share/keyrings/elasticsearch-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/elasticsearch-keyring.gpg] https://artifacts.elastic.co/packages/8.x/apt stable main" | \
+sudo tee /etc/apt/sources.list.d/elastic-8.x.list
+
+sudo apt update
+sudo apt install filebeat
 
 # Configure Filebeat to Send Logs to Logstash 
 sudo vi /etc/filebeat/filebeat.yml
