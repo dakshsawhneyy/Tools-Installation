@@ -44,7 +44,7 @@ filter {
 } 
 output { 
   elasticsearch { 
-    hosts => ["http://localhost:9200"] 
+    hosts => ["https://localhost:9200"] 
     index => "logs-%{+YYYY.MM.dd}" 
   } 
   stdout { codec => rubydebug } 
@@ -80,3 +80,8 @@ sudo ufw allow 5601/tcp
 # Access Kibana Dashboard 
 # Open a browser and go to: 
 http://<ELK_Server_Public_IP>:5601
+
+sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u kibana_system
+sudo journalctl -u kibana -n 50
+
+sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic
