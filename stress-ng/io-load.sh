@@ -1,4 +1,4 @@
-# Install
+# Install stress-ng
 sudo apt-get install stress-ng -y
 
 
