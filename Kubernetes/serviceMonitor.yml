@@ -14,7 +14,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: salary-model-servicemonitor
-  # namespace: app
+  namespace: monitoring  # by default, prom looks for sm in its own namespace
   labels:
     release: monitor      # MUST match your Helm release name
     app: salary-model      
