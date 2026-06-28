@@ -9,6 +9,21 @@ kubectl port-forward svc/monitor-grafana 30000:80
 
 kubectl get secret monitor-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 
+###################
+If you adding service monitor in app namespace
+you need to tell prometheus that look for that namespace as well
+###################
+
+promethes-values.yml
+prometheus:
+  prometheusSpec:
+    serviceMonitorNamespaceSelector: {}
+    serviceMonitorSelector: {}
+
+# helm upgrade monitor prometheus-community/kube-prometheus-stack -n monitoring -f infra/monitoring/prometheus-values.yml
+
+---
+
 # In your monitoring namespace
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
